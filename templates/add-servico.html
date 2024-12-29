@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block conteudo %}
+<div class="container">
+  <br />
+  <br/>
+  <br/>
+  <h1 class="text-center">Cadastrar servico:</h1>
+
+  <form action="{{url_for('add_servico')}}" method="POST">
+    <label class="form-label">carro:</label>
+    <input class="form-control" type="text" name="carro" />
+
+    <label class="form-label">placa:</label>
+    <input class="form-control" type="text" name="placa" />
+
+    <label class="form-label">Horario:</label>
+    <input class="form-control" type="time" name="horario" />
+
+    <label class="form-label">Dia:</label>
+    <input class="form-control" type="date" name="dia" />
+
+    <label class="form-label">Tipo:</label>
+    <input class="form-control" type="text" name="tipo_servico" />
+
+    <label class="form-label">Peça:</label>
+    <input class="form-control" type="text" name="peca_usada" />
+
+    <label class="form-label">Valor da Peça:</label>
+    <input class="form-control" type="text" name="valor_peca" />
+
+    <label class="form-label">Valor total:</label>
+    <input class="form-control" type="text" name="valor_servico" />
+
+    <input type="submit" class="btn btn-outline-light" style="margin-top: 10px;" />
+  </form>
+</div>
+{% endblock conteudo %}

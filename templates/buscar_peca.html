@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="container mt-5">
+    <br />
+    <br/>
+    <h1 class="text-center">Buscar Peça</h1>
+    <hr />
+    <!-- <a href="{{url_for('add_servico')}}" class="btn btn-secondary"
+      >servicos</a -->
+    
+    <br />
+    <form method="POST" action="{{ url_for('buscar_peca') }}">
+        <div class="mb-3">
+            <label for="id" class="form-label">ID da Peça</label>
+            <input type="number" class="form-control" id="id" name="id" required>
+        </div>
+        <button type="submit" class="btn btn-outline-light">Buscar</button>
+    </form>
+
+    {% if peca %}
+    <div class="mt-4">
+        <h3>Resultado:</h3>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>ID:</strong> {{ peca.id }}</li>
+            <li class="list-group-item"><strong>Nome:</strong> {{ peca.nome }}</li>
+            <li class="list-group-item"><strong>Tipo:</strong> {{ peca.tipo }}</li>
+            <li class="list-group-item"><strong>Quantidade:</strong> {{ peca.quantidade }}</li>
+            <li class="list-group-item"><strong>Preço:</strong> R$ {{ peca.preco }}</li>
+        </ul>
+    </div>
+    {% endif %}
+</div>
+{% endblock conteudo %}

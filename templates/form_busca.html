@@ -1,0 +1,23 @@
+<!-- form_busca.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Serviço</title>
+</head>
+<body>
+    <br />
+    <h1 class="text-center">BUSCAR SERVIÇO</h1>
+    <hr />
+    <!-- <a href="{{url_for('add_servico')}}" class="btn btn-secondary"
+      >servicos</a -->
+    
+    <br /><br />
+    <form method="POST" action="{{ url_for('buscar_servico') }}">
+        <label for="tipo_servico">Tipo de Serviço:</label>
+        <input type="text" id="tipo_servico" name="tipo_servico" placeholder="Ex: troca de óleo">
+        <button type="submit">Buscar</button>
+    </form>
+</body>
+</html>

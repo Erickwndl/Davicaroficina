@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block conteudo %}
+    <div class="container mt-4">
+        <br />
+        <br/>
+        <h1 class="text-center">Estoque de Peças</h1>
+        <hr />
+        <!-- <a href="{{url_for('add_servico')}}" class="btn btn-secondary"
+          >servicos</a -->
+        
+        <br />
+        <table class="table table-dark table-striped">
+            <thead class="table-danger">
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Tipo</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for peca in pecas %}
+                <tr>
+                    <td>{{ peca.id }}</td>
+                    <td>{{ peca.nome }}</td>
+                    <td>{{ peca.tipo }}</td>
+                    <td>{{ peca.quantidade }}</td>
+                    <td>{{ peca.preco }}</td>
+                    <td>
+                        <a href="{{ url_for('editar_peca', id=peca.id) }}" class="btn btn-warning">Editar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock conteudo %}

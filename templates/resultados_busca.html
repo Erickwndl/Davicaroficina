@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {% block conteudo %}
+<div class="container">
+  <h1 class="text-center">SERVIÇOS</h1>
+  <hr />
+  <!-- <a href="{{url_for('add_servico')}}" class="btn btn-secondary"
+    >servicos</a -->
+  
+  <br /><br />
+  <p>Buscando por: <strong>{{ tipo_servico }}</strong></p>
+  <!-- Links para ordenar por preço e data -->
+
+  <table class="table table-dark table-striped">
+    <thead class="table-danger">
+      <tr>
+        <th>ID</th>
+        <th>carro</th>
+        <th>placa</th>
+        <th>horario</th>
+        <th>dia</th>
+        <th>Tipo</th>
+        <th>Peca</th>
+        <th>Valor_peca</th>
+        <th>Valor_Total</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for servico in servicos %}
+        <tr>
+          <td>{{ servico.id }}</td>
+          <td>{{ servico.carro }}</td>
+          <td>{{ servico.placa }}</td>
+          <td>{{ servico.horario }}</td>
+          <td>{{ servico.dia }}</td>
+          <td>{{ servico.tipo_servico }}</td>
+          <td>{{ servico.peca_usada }}</td>
+          <td>{{ servico.valor_peca }}</td>
+          <td>{{ servico.valor_servico }}</td>
+          <td>
+            <a href="atualizar-servico/{{servico.id}}" class="btn btn-warning">Editar</a>
+            <a href="deletar-servico/{{servico.id}}" class="btn btn-danger">Deletar</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+      
+  </table>
+</div>
+{% endblock conteudo %}

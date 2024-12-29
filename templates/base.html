@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>Oficina DAVI CAR</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body style="background-color: #4d4d52; color: aliceblue;">
+
+    <!-- Example Code -->
+    
+        
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{{url_for('servicos_por_dia')}}">
+          <img src="https://cdn-icons-png.flaticon.com/512/4284/4284101.png" alt="DAVI CAR" width="50" height="40" class="d-inline-block align-text-top">
+          DAVI CAR
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">MENU DAVI CAR</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{url_for('list_servicos')}}">Serviços</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('add_servico')}}">Cadastrar serviço</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Estoque peças
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="{{ url_for('estoque_pecas') }}">Peças Disponíveis</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('buscar_peca') }}">Buscar Peça</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('adicionar_peca') }}">Adicionar Peça</a></li>
+                  <li>
+                      <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="{{ url_for('pecas_em_falta') }}">Peças em Falta</a></li>
+                </ul>
+              </li>
+            </ul>
+
+          
+          </div>
+        </div>
+      </div>
+    </nav>
+    {% block conteudo %}
+    {% endblock conteudo %}
+    
+    
+      
+    <!-- End Example Code -->
+  </body>
+</html>

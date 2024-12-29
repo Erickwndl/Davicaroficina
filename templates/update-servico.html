@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %} {% block conteudo %}
+<br />
+<br/>
+<br>
+<h1 class="text-center">Atualizar servico: {{ servico.carro }}</h1>
+
+  <form action="{{url_for('update_servico', id=servico.id)}}" method="POST" style="color: aliceblue; padding: 0 30px;">
+    <label class="form-label">Carro:</label>
+    <input class="form-control" type="text" name="carro" value="{{ servico.carro }}" />
+    <label class="form-label">placa:</label>
+    <input class="form-control"  type="text" name="placa" value="{{ servico.placa }}" />
+    <label class="form-label">horario:</label>
+    <input class="form-control"  type="time" name="horario" value="{{ servico.horario }}" />
+    <labe class="form-label">dia:</label>
+    <input class="form-control"  type="date" name="dia" value="{{ servico.dia }}" />
+    <label class="form-label">tipo:</label>
+    <input class="form-control"  type="text" name="tipo_servico" value="{{ servico.tipo_servico }}" />
+    <label class="form-label">peca:</label>
+    <input class="form-control"  type="text" name="peca_usada" value="{{ servico.peca_usada }}" />
+    <label class="form-label">valor peça:</label>
+    <input class="form-control"  type="text" name="valor_peca" value="{{ servico.valor_peca }}" />
+    <label class="form-label">valor total:</label>
+    <input class="form-control"  type="text" name="valor_servico" value="{{ servico.valor_servico }}" />
+    <input type="submit" class="btn btn-outline-light" style="margin-top: 10px;"/>
+  </form>
+
+{% endblock conteudo %}

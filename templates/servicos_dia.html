@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="container mt-5">
+    <br />
+    <h1 class="text-center">Serviços do Dia</h1>
+    <hr>
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <p><strong>Data Selecionada:</strong> {{ data }}</p>
+        <form method="GET" action="{{ url_for('servicos_por_dia') }}" class="d-flex">
+            <input 
+                type="date" 
+                name="data" 
+                class="form-control me-2" 
+                value="{{ data }}">
+            <button type="submit" class="btn btn-outline-light">Filtrar</button>
+        </form>
+    </div>
+
+    {% if servico and servico|length > 0 %}
+        <table class="table table-dark table-striped">
+            <thead class="table-danger">
+                <tr>
+                    <th>ID</th>
+                    <th>Carro</th>
+                    <th>Placa</th>
+                    <th>Horário</th>
+                    <th>Dia</th>
+                    <th>Tipo</th>
+                    <th>Peça</th>
+                    <th>Valor da Peça</th>
+                    <th>Valor Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in servico %}
+                    <tr>
+                        <td>{{ s.id }}</td>
+                        <td>{{ s.carro }}</td>
+                        <td>{{ s.placa }}</td>
+                        <td>{{ s.horario }}</td>
+                        <td>{{ s.dia }}</td>
+                        <td>{{ s.tipo_servico }}</td>
+                        <td>{{ s.peca_usada }}</td>
+                        <td>{{ s.valor_peca }}</td>
+                        <td>{{ s.valor_servico }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    
+                    <td colspan="8" class="text-end"><strong>Total do Dia:</strong></td>
+                    <td><strong>{{ total_dia }}</strong></td>
+
+                </tr>
+            </tfoot>
+        </table>
+    {% else %}
+        <div class="alert alert-info" role="alert">
+            Nenhum serviço encontrado para a data selecionada.
+        </div>
+    {% endif %}
+</div>
+{% endblock conteudo %}
+

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="container mt-5">
+    <br />
+    <h1 class="text-center">Peças em falta</h1>
+    <hr />
+    <!-- <a href="{{url_for('add_servico')}}" class="btn btn-secondary"
+      >servicos</a -->
+    
+    <br /><br />
+    {% if pecas %}
+    <table class="table table-dark table-striped">
+        <thead class="table-danger">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Quantidade</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for peca in pecas %}
+            <tr>
+                <td>{{ peca.id }}</td>
+                <td>{{ peca.nome }}</td>
+                <td>{{ peca.tipo }}</td>
+                <td>{{ peca.quantidade }}</td>
+                <td>{{ peca.preco }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>Não há peças em falta!</p>
+    {% endif %}
+</div>
+{% endblock conteudo %}
