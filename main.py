@@ -4,12 +4,11 @@ from flask import (
     redirect,
     request,
     url_for
-
+    
 )
-
+from waitress import serve
+import os
 from datetime import date
-
-
 from connection_handler import connection_handler
 
 app = Flask(__name__)
@@ -148,7 +147,8 @@ def buscar_peca():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+    port = int(os.environ.get('PORT', 5001))  # Usa PORT se definido, senão usa 5001
+    serve(app, host='0.0.0.0', port=port)
     # connection_handler.close_connection()
     # connection_handler.create_table()
     # connection_handler.insert_sample_data()
